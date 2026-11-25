@@ -12,9 +12,9 @@
 
 | **Details**                                                                                        | **Comment** |
 |:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                                                    |             |
-| **Name:**                                                                                          |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
+| **Student ID:**                                                     162357                               |             |
+| **Name:**                       Jeanette Omondi                                                                   |             |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |     I handled the data acquisition and preparation phase. I selected MSFT as our target stock and downloaded the historical data on 19th November 2026. The data quality report showed 2,981 clean trading days. I ran ADF and KPSS tests which confirmed the raw closing price is non-stationary, but the log returns are stationary. I also ran the Ljung-Box test, which showed significant autocorrelation at lags 5, 10, and 21, meaning there are patterns our forecasting models can exploit. This analysis justified our group's decision to forecast log returns rather than raw prices. I also generated the candlestick chart for visual analysis.        |
 
 **Member 2**
 
