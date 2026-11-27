@@ -10,19 +10,19 @@
 
 **Member 1**
 
-| **Details**                                                                                        | **Comment** |
-|:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                     162357                               |             |
-| **Name:**                       Jeanette Omondi                                                                   |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |     I handled the data acquisition and preparation phase. I selected MSFT as our target stock and downloaded the historical data on 19th November 2026. The data quality report showed 2,981 clean trading days. I ran ADF and KPSS tests which confirmed the raw closing price is non-stationary, but the log returns are stationary. I also ran the Ljung-Box test, which showed significant autocorrelation at lags 5, 10, and 21, meaning there are patterns our forecasting models can exploit. This analysis justified our group's decision to forecast log returns rather than raw prices. I also generated the candlestick chart for visual analysis.        |
+| **Details**                                                                                        | **Comment**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Student ID:** 162357                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Name:** Jeanette Omondi                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** | I handled the data acquisition and preparation phase. I selected MSFT as our target stock and downloaded the historical data on 19th November 2026. The data quality report showed 2,981 clean trading days. I ran ADF and KPSS tests which confirmed the raw closing price is non-stationary, but the log returns are stationary. I also ran the Ljung-Box test, which showed significant autocorrelation at lags 5, 10, and 21, meaning there are patterns our forecasting models can exploit. This analysis justified our group's decision to forecast log returns rather than raw prices. I also generated the candlestick chart for visual analysis. |
 
 **Member 2**
 
-| **Details**                                                                                        | **Comment** |
-|:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                                                    |             |
-| **Name:**                                                                                          |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
+| **Details**                                                                                        | **Comment**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| :------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Student Lydiah Wangui Wangaru ID:**                                                              | 166599                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Name:**                                                                                          | Lydiah Wangui Wangaru                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** | I built the baseline model and the walk-forward validation framework for our MSFT forecast. Using the team's settings (1,000 training rows, 63-day test blocks, expanding window, no shuffling), I trained a Ridge regression on lagged returns, volatility and market predictors (S&P 500, VIX, tech sector, bond yields, dollar, oil, gold). I ran the look-ahead check on every feature to confirm no future information leaked in, then compared Ridge against the naive forecast on RMSE, MAE, out-of-sample R² and directional accuracy across ~1,764 out-of-sample days. My Ridge model did not beat the naive forecast: RMSE was $5.99 vs $5.79 for naive, out-of-sample R² was −0.056, and directional accuracy was 50.7%, essentially a coin flip. I learned that daily stock returns are very hard to predict and that the naive "tomorrow equals today" forecast is a tough benchmark; I also learned why time cannot be shuffled and how easily leakage happens (e.g. fitting a scaler on all the data), and that a single metric is not enough because RMSE, R² and directional accuracy can tell different stories about the same model. |
 
 **Member 3**
 
@@ -36,17 +36,17 @@
 
 | **Details**                                                                                        | **Comment** |
 |:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                                                    |   166167         |
-| **Name:**                                                                                          |  Katanu Kavila-Kwinga           |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |  I built the 10%–90% prediction ranges using quantile regression, measured their coverage, forecast at 1, 5, 21 and 63 days, and saved forecast_intermediate.csv. I learned that the ranges were too narrow (62% coverage at 63 days instead of 80%) and that the model never beat the naive forecast at any horizon.           |
+| **Student ID:**                                                                                    |             |
+| **Name:**                                                                                          |             |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
 
 **Member 5**
 
 | **Details**                                                                                        | **Comment** |
-|:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                                                    |             |
-| **Name:**                                                                                          |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
+| :------------------------------------------------------------------------------------------------- | :---------- |
+| **Student ID:**                                                                                    |  166167            |
+| **Name:**                                                                                          |  Katanu Kavila-Kwinga             |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |   I built the 10%–90% prediction ranges using quantile regression, measured their coverage, forecast at 1, 5, 21 and 63 days, and saved forecast_intermediate.csv. I learned that the ranges were too narrow (62% coverage at 63 days instead of 80%) and that the model never beat the naive forecast at any horizon.          |
 
 ## Scenario
 
@@ -63,18 +63,20 @@ You will answer that question using **real market data** and **several predictor
 1. Your group must forecast **a stock that is different from NVDA**. Choose a company whose price history is available on Yahoo Finance (for example MSFT, JPM, TSLA, NVDA, KO, or a company listed on another exchange).
 2. Download the data with the helper script:
 
-    ```shell
-    python download_data.py --target MSFT
-    ```
+   ```shell
+   python download_data.py --target MSFT
+   ```
 
-    and then set `TARGET_TICKER = "MSFT"` in `tslab/config.py`, so that the notebooks load your stock.
+   and then set `TARGET_TICKER = "MSFT"` in `tslab/config.py`, so that the notebooks load your stock.
+
 3. If your stock is not available on Yahoo Finance (many Nairobi Securities Exchange shares are not), download the daily prices by hand from another site and let the script clean the file:
 
-    ```shell
-    python download_data.py --target SCOM --from-csv "data/Download Data - STOCK_KE_XNAI_SCOM.csv"
-    ```
+   ```shell
+   python download_data.py --target SCOM --from-csv "data/Download Data - STOCK_KE_XNAI_SCOM.csv"
+   ```
 
-    Check the quality report that the script prints. Missing days, repeated prices (no trading), and very short histories will limit what you can do, and you must say so in your report. A history shorter than about four years cannot support the walk-forward settings used in the notebooks; reduce `INITIAL_TRAIN` in `tslab/config.py` and explain your choice.
+   Check the quality report that the script prints. Missing days, repeated prices (no trading), and very short histories will limit what you can do, and you must say so in your report. A history shorter than about four years cannot support the walk-forward settings used in the notebooks; reduce `INITIAL_TRAIN` in `tslab/config.py` and explain your choice.
+
 4. The predictors (S&P 500, a technology fund, VIX, 10-year yield, US dollar, Brent crude, gold) are downloaded for you. You may add or replace predictors if you can justify why they would matter for **your** stock (for example, a local index for a local stock). Predictors must be known **before** the day you forecast.
 5. State the **date on which you downloaded your data**. Market data providers revise history, so the date matters.
 
@@ -177,22 +179,22 @@ For all three tiers, submit the link to a short video (not more than 4 minutes) 
 3. Your Power BI report or dashboard with the forecast and the range.
 
 | **Key**                | **Value** |
-|:-----------------------|:----------|
+| :--------------------- | :-------- |
 | **Link to the video:** |           |
 
 ---
 
 ## How Your Submission Will Be Marked (Out of 100)
 
-| #   | What you need to show                                                                                                                | Marks |
-|:----|:-------------------------------------------------------------------------------------------------------------------------------------|------:|
-| 1   | **Data**: a justified stock, a data quality check, a stated download date, and a stationarity analysis                               | 10    |
-| 2   | **Honest validation**: walk-forward validation, no look-ahead, tuning before the test period, scalers fitted on the training block   | 25    |
-| 3   | **Evaluation against the naive forecast**: metrics, the Diebold-Mariano test, and a correct reading of the result                    | 20    |
-| 4   | **Modelling quality** for your tier (see the tier descriptions above)                                                                | 15    |
-| 5   | **Uncertainty**: a forecast range, and (Intermediate and Advanced) the coverage of the range                                          | 10    |
-| 6   | **Power BI** report or dashboard for your tier, readable by a manager                                                                | 10    |
-| 7   | **Written verdict and video**: clear, honest, in your own words, within 4 minutes                                                    | 10    |
+| #   | What you need to show                                                                                                              | Marks |
+| :-- | :--------------------------------------------------------------------------------------------------------------------------------- | ----: |
+| 1   | **Data**: a justified stock, a data quality check, a stated download date, and a stationarity analysis                             |    10 |
+| 2   | **Honest validation**: walk-forward validation, no look-ahead, tuning before the test period, scalers fitted on the training block |    25 |
+| 3   | **Evaluation against the naive forecast**: metrics, the Diebold-Mariano test, and a correct reading of the result                  |    20 |
+| 4   | **Modelling quality** for your tier (see the tier descriptions above)                                                              |    15 |
+| 5   | **Uncertainty**: a forecast range, and (Intermediate and Advanced) the coverage of the range                                       |    10 |
+| 6   | **Power BI** report or dashboard for your tier, readable by a manager                                                              |    10 |
+| 7   | **Written verdict and video**: clear, honest, in your own words, within 4 minutes                                                  |    10 |
 
 ### Caps (these apply to the whole submission)
 
