@@ -36,9 +36,9 @@
 
 | **Details**                                                                                        | **Comment** |
 |:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                                                    |             |
-| **Name:**                                                                                          |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
+| **Student ID:**                                                                                    |   166167         |
+| **Name:**                                                                                          |  Katanu Kavila-Kwinga           |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |  I built the 10%–90% prediction ranges using quantile regression, measured their coverage, forecast at 1, 5, 21 and 63 days, and saved forecast_intermediate.csv. I learned that the ranges were too narrow (62% coverage at 63 days instead of 80%) and that the model never beat the naive forecast at any horizon.           |
 
 **Member 5**
 
