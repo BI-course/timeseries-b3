@@ -27,10 +27,10 @@
 **Member 3**
 
 | **Details**                                                                                        | **Comment** |
-| :------------------------------------------------------------------------------------------------- | :---------- |
-| **Student ID:**                                                                                    |             |
-| **Name:**                                                                                          |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
+|:---------------------------------------------------------------------------------------------------|:------------|
+| **Student ID:**                                                                                    |      141809       |
+| **Name:**                                                                                          |   Keisha Wambui Wairimu          |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |    I handled the intermediate modelling phase. I trained a classical model (ARIMA(1,0,1)) and a machine learning model (Gradient Boosting: 200 trees, depth 2, learning rate 0.05), and re-trained Ridge (alpha = 10, standardised) in my notebook because member2_ridge_predictions.csv was empty. All models used walk-forward validation (29 splits, 1,781 test days) with 47 predictors and were compared against the naive forecast (predicting 0 return). I ran the Diebold-Mariano test on squared and absolute errors and checked my test code with a perfect-forecast sanity check. Ridge (p = 0.010) and Gradient Boosting (p = 0.0002) were significantly worse than naive, and ARIMA was statistically the same (p = 0.99), so no model beat the naive forecast. I then ran a feature ablation, retraining Gradient Boosting without each of 7 predictor groups: no group gave real forecasting skill, and removing any one changed the RMSE by less than 1.5%. I exported the test-period predictions for Member 4 and submitted the work in member3_intermediate.ipynb through pull request #4 (branch feature/intermediate-modeling), which was reviewed and merged into main.         |
 
 **Member 4**
 
