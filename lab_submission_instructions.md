@@ -36,17 +36,17 @@
 
 | **Details**                                                                                        | **Comment** |
 |:---------------------------------------------------------------------------------------------------|:------------|
-| **Student ID:**                                                                                    |             |
-| **Name:**                                                                                          |             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |             |
+| **Student ID:**                                                                                    |  166167     |
+| **Name:**                                                                                          |  Katanu Kavila-Kwinga |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** | I built the 10%–90% prediction ranges using quantile regression, measured their coverage, forecast at 1, 5, 21 and 63 days, and saved forecast_intermediate.csv. I learned that the ranges were too narrow (62% coverage at 63 days instead of 80%) and that the model never beat the naive forecast at any horizon. |
 
 **Member 5**
 
 | **Details**                                                                                        | **Comment** |
 | :------------------------------------------------------------------------------------------------- | :---------- |
-| **Student ID:**                                                                                    |  166167            |
-| **Name:**                                                                                          |  Katanu Kavila-Kwinga             |
-| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** |   I built the 10%–90% prediction ranges using quantile regression, measured their coverage, forecast at 1, 5, 21 and 63 days, and saved forecast_intermediate.csv. I learned that the ranges were too narrow (62% coverage at 63 days instead of 80%) and that the model never beat the naive forecast at any horizon.          |
+| **Student ID:**                                                                                    |  [168944] |
+| **Name:**                                                                                          |  [Njuguna Bernard Maina]  |
+| **What part of the lab did you personally contribute to,** <br>**and what did you learn from it?** | I built the Power BI dashboard from forecast_intermediate.csv. It has a line chart of the actual price against the naive, ARIMA and Gradient Boosting forecasts with the 10%–90% range, a table of the forecast values for the four horizons, an error table with RMSE and MAE for each method next to the naive forecast, and cards for the error gap, a plain verdict and the coverage of the range. A horizon slicer switches the whole page between 1, 5, 21 and 63 days. I checked my DAX measures against Member 4's results. For example, at 1 day Gradient Boosting's RMSE is 6.25 against 5.79 for naive (+8.0%), and at 63 days the gap is +17.4%. The dashboard shows that no model beats the naive forecast, and that the 80% range covered only 77.9% of outcomes at 1 day and 61.6% at 63 days. I learned that RMSE needs a row-by-row calculation in DAX rather than a simple average, that ARIMA and Ridge exist only at the 1-day horizon so their measures must return blank elsewhere, and that a dashboard with no horizon selected mixes the horizons and gives misleading results (it made ARIMA look 78% better than naive), so the slicer is set to a single selection. |
 
 ## Scenario
 
